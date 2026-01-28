@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//Simplemente se carga una imagen por fines estéticos
+
 @WebServlet("/pantallaCarga")
 public class pantallaCargaServlet extends HttpServlet {
 

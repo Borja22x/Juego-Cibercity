@@ -19,7 +19,7 @@
         <a class="btn" href="${pageContext.request.contextPath}/JSP/pantallaConfig.jsp">Play</a>
         <a class="btn" href="${pageContext.request.contextPath}/JSP/gameRules.jsp">Game Rules</a>
         <a class="btn" href="${pageContext.request.contextPath}/JSP/gameInfo.jsp">Info</a>
-        <a class="btn" href="https://github.com/Borja22x/Cibercity/tree/main">Source</a>
+        <a class="btn" href="https://github.com/Borja22x/Juego-Cibercity.git">Source</a>
     </div>
 
 </body>
