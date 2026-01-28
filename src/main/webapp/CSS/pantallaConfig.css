@@ -1,0 +1,211 @@
+@charset "UTF-8";
+:root {
+  --color-principal: white;
+  --color-fondo-tarjeta: rgba(0, 0, 0, 0.6);
+  --color-sombra: rgba(227, 45, 160, 0.3);
+  --color-boton-hover: rgba(227, 45, 160, 0.8);
+  --color-brillo-inicial: rgb(227, 45, 160);
+  --color-brillo-final: rgba(227, 45, 160, 0.3);
+}
+
+@font-face {
+  font-family: 'fuenteTitulo';
+  src: url('../fuentes/Cyber Brush.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fuentePrincipal';
+  src: url('../fuentes/MinecraftStandard.otf') format('opentype');
+}
+
+body {
+  background: url(../img/fondoConf.png);
+  font-family: 'fuentePrincipal';
+  color: var(--color-principal);
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+h1 {
+  font-family: 'fuenteTitulo';
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  margin: 5vh 0 3vh;
+  animation: animacionTitulo 1.5s infinite alternate;
+}
+
+#titulo {
+  animation: entrada 1s ease forwards;
+}
+
+.config {
+  background: var(--color-fondo-tarjeta);
+  border-radius: 20px;
+  padding: 3vw;
+  width: 90%;
+  margin: 0 auto 2vw;
+  box-shadow: 0 0 20px var(--color-sombra);
+  text-align: center;
+  animation: entrada 2s ease forwards;
+}
+
+p {
+  font-size: 20px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  flex-wrap: wrap;
+  accent-color: rgba(119, 0, 255, 0.6);
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+.radio-group input {
+	cursor: url("../Cursor/cursor.png"), auto;
+}
+
+/* ============================== */
+/* NUEVA DISTRIBUCIÓN HORIZONTAL */
+/* ============================== */
+
+#jugadores-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
+
+/* Tarjeta de jugador */
+.jugador-box {
+  background: var(--color-fondo-tarjeta);
+  border-radius: 20px;
+  padding: 20px;
+  width: 230px;
+  box-shadow: 0 0 20px var(--color-sombra);
+  text-align: center;
+  animation: entrada 0.8s ease forwards;
+}
+
+.jugador-box p {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.jugador-box label {
+  font-size: 1rem;
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+.jugador-box input[type="text"] {
+  padding: 5px;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'fuentePrincipal';
+  font-size: 14px;
+  margin-top: 20px;
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 3vw auto;
+  gap: 50px;
+  animation: entrada 3s ease forwards;
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+button{
+	font-family: 'fuentePrincipal';
+}
+
+.btn-enlace {
+  background-color: var(--color-fondo-tarjeta);
+  color: var(--color-principal);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  box-shadow: 0 0 20px var(--color-sombra);
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+.btn-enlace:hover {
+  background-color: var(--color-boton-hover);
+  transform: scale(1.05);
+}
+
+/* ANIMACIONES */
+@keyframes animacionTitulo {
+  from {
+    text-shadow: 0 0 30px var(--color-brillo-inicial);
+  }
+  to {
+    text-shadow: 0 0 30px var(--color-brillo-final);
+  }
+}
+
+@keyframes entrada {
+  0%, 30% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .config {
+    padding: 25px;
+  }
+
+  #jugadores-container {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  .radio-group label {
+    font-size: 16px;
+  }
+
+  .jugador-box {
+    width: 180px;
+    padding: 15px;
+  }
+
+  .jugador-box input[type="text"] {
+    width: 120px;
+  }
+}

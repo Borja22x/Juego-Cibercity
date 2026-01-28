@@ -1,0 +1,294 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),  url(../img/fondoCiudad.jpg 		);
+  background-size: contain;
+  background-attachment: fixed; 
+  height: 98vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'minecraft';
+  cursor: url("../cursor/cursor.png"), auto;
+  overflow: hidden;
+}
+
+#principal{
+    background-color: rgba(41, 16, 59, 0.8);
+    width: 85%;
+    height: 92%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.904);
+}
+
+#imagen-eva-fija { 
+    height: 150px;
+    position: absolute;
+    bottom: 60px;
+    right: 70px;
+}
+
+#ganador {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0%;
+}
+
+h1 {
+    font-family: 'fuenteTitulo';
+    position: relative;
+    top: 10px;
+    left: 15px;
+    font-size: 90px;
+    text-shadow: 0 0 20px rgb(138, 96, 158);
+}
+
+h2 {
+    font-size: 35px;
+    text-shadow: 0 0 20px black;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+#fotoGanador {
+    height: 600px;
+    position: relative;
+    top: -25px;
+    animation-name: ganador-moves;
+    animation-duration: 2.5s; 
+    animation-iteration-count: infinite; 
+    animation-direction: alternate;
+    will-change: transform;
+}
+
+@keyframes ganador-moves {
+    from{
+        transform: translateY(-8px);
+    } to{
+        transform: translateY(8px);
+    }
+}
+
+#datosGanador {
+    position: relative;
+    top: -110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu {
+    width: 45%;
+    margin-top: 9%;
+}
+
+h5 {
+    font-size: 25px;
+    background-color: rgb(18, 0, 36);
+    width: 75%;
+    border-radius: 15px;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+table {
+    width: 77%;
+    border-spacing: 0 10px;
+}
+
+th {
+    padding: 10px 15px;
+    background-color: rgba(18, 0, 36, 0.65);
+}
+
+tr th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: left;
+    font-size: 15px;
+}
+
+tr th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: right;
+    font-size: 12px;
+}
+
+tr th:nth-child(2) {
+    text-align: center;
+    font-size: 15px;
+}
+
+
+#botones-accion{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: unset;
+  border: none;
+  margin-top: 110px;
+}
+
+#volverMenu {
+  font-family: system-ui, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  width: 77%;
+  padding-top: 12px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: url("../cursor/cursor.png"), auto;
+  background-color: rgb(106, 83, 189);
+  overflow: hidden;
+  transition: 0.25s;
+  margin-bottom: 10px;
+}
+
+/* ===== EFECTO NEÓN EN HOVER (CONSTRUCCIÓN) ===== */
+#volverJugar:hover {
+  background: #6C63FF;
+  box-shadow: 0 0 15px #6C63FF, 
+              0 0 40px #6C63FF;
+  transform: scale(1.06);
+}
+
+#volverMenu:hover {
+  background: #6C63FF;
+  box-shadow: 0 0 15px #6C63FF, 
+              0 0 40px #6C63FF;
+  transform: scale(1.06);
+}
+
+
+#botones-accion > #volverMenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  transition: 0.5s;
+}
+
+/* movimiento del rayo */
+#botones-accion > #volverMenu:hover::before {
+  left: 100%;
+}
+
+/* ===== EFECTO DE BRILLO INTERIOR SUAVE ===== */
+#botones-accion > #volverMenu::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(22px);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+#botones-accion > #volverMenu:hover::after {
+  opacity: 0.6;
+}
+
+/* --- INICIO DEL CÓDIGO DEL CONFETI --- */
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f2d74e;
+    top: -10px;
+    opacity: 0;
+}
+
+@keyframes caer {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotateX(0) rotateY(0);
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        transform: translateX(20px) rotateX(360deg) rotateY(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- 30 PIEZAS DE CONFETI CON VARIACIONES --- */
+
+/* Las 15 originales */
+.confetti:nth-child(1) { left: 5%; animation: caer 4s linear infinite; background: #6C63FF; }
+.confetti:nth-child(2) { left: 12%; animation: caer 5s linear infinite; animation-delay: 1s; background: #00d4ff; }
+.confetti:nth-child(3) { left: 20%; animation: caer 3.5s linear infinite; animation-delay: 2s; background: #ff00ff; }
+.confetti:nth-child(4) { left: 28%; animation: caer 4.5s linear infinite; animation-delay: 0.5s; background: #f2d74e; }
+.confetti:nth-child(5) { left: 35%; animation: caer 5.5s linear infinite; animation-delay: 3s; background: #6C63FF; }
+.confetti:nth-child(6) { left: 42%; animation: caer 3.8s linear infinite; animation-delay: 1.5s; background: #ffffff; }
+.confetti:nth-child(7) { left: 50%; animation: caer 4.2s linear infinite; animation-delay: 2.5s; background: #00d4ff; }
+.confetti:nth-child(8) { left: 58%; animation: caer 5s linear infinite; animation-delay: 0.2s; background: #ff00ff; }
+.confetti:nth-child(9) { left: 65%; animation: caer 4.7s linear infinite; animation-delay: 3.5s; background: #f2d74e; }
+.confetti:nth-child(10) { left: 72%; animation: caer 3.2s linear infinite; animation-delay: 1.2s; background: #6C63FF; }
+.confetti:nth-child(11) { left: 80%; animation: caer 4.8s linear infinite; animation-delay: 2.8s; background: #ffffff; }
+.confetti:nth-child(12) { left: 88%; animation: caer 5.2s linear infinite; animation-delay: 0.8s; background: #00d4ff; }
+.confetti:nth-child(13) { left: 95%; animation: caer 3.6s linear infinite; animation-delay: 1.8s; background: #ff00ff; }
+.confetti:nth-child(14) { left: 15%; animation: caer 6s linear infinite; animation-delay: 4s; background: #f2d74e; }
+.confetti:nth-child(15) { left: 85%; animation: caer 5.5s linear infinite; animation-delay: 3.2s; background: #6C63FF; }
+
+/* Las 15 nuevas para más densidad */
+.confetti:nth-child(16) { left: 3%; animation: caer 3.3s linear infinite; animation-delay: 0.7s; background: #00d4ff; }
+.confetti:nth-child(17) { left: 18%; animation: caer 5.8s linear infinite; animation-delay: 2.2s; background: #ff00ff; }
+.confetti:nth-child(18) { left: 32%; animation: caer 4.1s linear infinite; animation-delay: 1.1s; background: #f2d74e; }
+.confetti:nth-child(19) { left: 45%; animation: caer 3.9s linear infinite; animation-delay: 3.3s; background: #ffffff; }
+.confetti:nth-child(20) { left: 61%; animation: caer 5.2s linear infinite; animation-delay: 0.4s; background: #6C63FF; }
+.confetti:nth-child(21) { left: 75%; animation: caer 4.6s linear infinite; animation-delay: 1.9s; background: #00d4ff; }
+.confetti:nth-child(22) { left: 92%; animation: caer 3.7s linear infinite; animation-delay: 2.6s; background: #ff00ff; }
+.confetti:nth-child(23) { left: 8%; animation: caer 5.5s linear infinite; animation-delay: 0.1s; background: #f2d74e; }
+.confetti:nth-child(24) { left: 24%; animation: caer 4.3s linear infinite; animation-delay: 3.8s; background: #ffffff; }
+.confetti:nth-child(25) { left: 38%; animation: caer 3.5s linear infinite; animation-delay: 1.4s; background: #6C63FF; }
+.confetti:nth-child(26) { left: 53%; animation: caer 5.9s linear infinite; animation-delay: 2.9s; background: #00d4ff; }
+.confetti:nth-child(27) { left: 68%; animation: caer 4.8s linear infinite; animation-delay: 0.3s; background: #ff00ff; }
+.confetti:nth-child(28) { left: 82%; animation: caer 3.4s linear infinite; animation-delay: 3.1s; background: #f2d74e; }
+.confetti:nth-child(29) { left: 97%; animation: caer 5.1s linear infinite; animation-delay: 1.6s; background: #ffffff; }
+.confetti:nth-child(30) { left: 50%; animation: caer 4.0s linear infinite; animation-delay: 4.0s; background: #6C63FF; }
+
+
+/* FUENTES */
+@font-face {
+  font-family: 'minecraft';
+  src: url('../fuentes/MinecraftStandard.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fuenteTitulo';
+  src: url('fuentes/Cyber\ Brush.ttf') format('truetype');
+}

@@ -1,0 +1,159 @@
+@charset "UTF-8";
+:root{
+    --color-principal: white;
+    --fuente-titulos: 'fuenteTitulo';
+
+}
+
+@font-face {
+  font-family: 'fuenteTitulo';
+  src: url('../fuentes/Cyber\ Brush.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fuentePrincipal';
+  src: url('../fuentes/MinecraftStandard.otf') format('opentype');
+}
+
+body{
+    background-image: url(../img/fondoCiudad.png);
+    font-family: 'fuentePrincipal';
+    cursor: url("../Cursor/cursor.png"), auto;
+}
+
+h1{
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    text-align: center;
+    font-size: 90px;
+    margin-top: 100px;
+    margin-bottom: 70px;
+    animation-name: led-title;
+    /* Duración de cada ciclo de la animación (más largo para que sea lento) */
+    animation-duration: 1.5s; 
+    /* Hace que se repita indefinidamente */
+    animation-iteration-count: infinite; 
+    /* Hace que la animación vaya hacia adelante y luego hacia atrás (de from a to y de to a from) */
+    animation-direction: alternate;
+}
+
+#titulo{
+    animation: entrada-titulo 2s ease forwards;
+}
+
+@keyframes led-title {
+    from{
+        text-shadow: 0px 0px 30px rgb(164, 196, 255);
+    } to{
+        text-shadow: 0px 0px 30px rgba(124, 170, 255, 0.315);
+    }
+    
+}
+
+@keyframes entrada-titulo {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    10% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    max-width: 80%;
+    padding: 50px 0px;
+    
+    gap: 10px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: rgba(0,35,151,0.6);
+    box-shadow: 0px 0px 30px rgba(255,255,255,0.65);
+
+    animation: entrada-section 2.5s ease forwards;
+    
+}
+
+@keyframes entrada-section {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    30% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    animation-name: eva-moves;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    will-change: transform;
+}
+
+
+@keyframes eva-moves {
+    from{
+        transform: translateY(-8px);
+    } to{
+        transform: translateY(8px);
+    }
+}
+
+p{
+    color: var(--color-principal);
+}
+
+#info{
+    width: 100%;
+}
+
+#icono-volver{
+    margin-top: 100px;
+    max-width: 77%;
+    color: white;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    margin-right: 90px;
+    transform: scale(1.5);
+    cursor: url("../Cursor/cursor.png"), auto;
+}
+
+#botonAtras{
+    animation: entrada-boton 3s ease forwards;
+}
+
+@keyframes entrada-boton {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

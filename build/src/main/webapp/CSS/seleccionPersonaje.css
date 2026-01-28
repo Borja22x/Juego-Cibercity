@@ -1,0 +1,215 @@
+@charset "UTF-8";
+:root {
+    --color-principal: white;
+    --color-fondo-tarjeta: rgba(0, 0, 0, 0.6);
+    --color-sombra: rgba(164, 196, 255, 0.3);
+    --color-boton-hover: rgba(164, 196, 255, 0.5);
+    --color-brillo-inicial: rgb(164, 196, 255);
+    --color-brillo-final: rgba(124, 170, 255, 0.3);
+}
+
+/* Fuentes */
+@font-face {
+    font-family: 'fuenteTitulo';
+    src: url("${pageContext.request.contextPath}/fuentes/Cyber Brush.ttf");
+}
+
+@font-face {
+    font-family: 'fuentePrincipal';
+    src: url('../fuentes/MinecraftStandard.otf') format('opentype');
+}
+
+/* Fondo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'fuentePrincipal';
+    color: var(--color-principal);
+    background-image: url('../img/fondoSeleccionPersonaje.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    cursor: url("../Cursor/cursor.png"), auto;
+}
+
+h1{
+	margin-left: 30px;
+}
+
+/* Contenedor general */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+}
+
+/* Título del personaje */
+#personaje-nombre {
+    font-family: 'fuenteTitulo';
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: bold;
+    margin-bottom: 60px;
+    margin-top: -20px;
+    animation: animacionTitulo 1.5s infinite alternate;
+    text-shadow: 0 0 20px var(--color-brillo-inicial);
+}
+
+/* Zona del selector */
+.selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.7);
+    transform-origin: center;
+    height: 60vh;
+    max-height: 60vh;
+}
+
+/* Imagen del personaje */
+#personaje-img {
+    max-height: 70vh;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px var(--color-sombra));
+    transition: transform 0.3s ease-in-out;
+}
+
+#personaje-img:hover {
+    transform: scale(1.03);
+}
+
+/* Flechas */
+.arrow {
+    margin-left: 20px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: var(--color-fondo-tarjeta);
+    border-radius: 10px;
+    color: var(--color-principal);
+    box-shadow: 0 0 20px var(--color-sombra);
+    transition: 0.3s;
+    cursor: url("../Cursor/cursor.png"), auto;
+}
+
+.arrow:hover {
+    background: var(--color-boton-hover);
+    transform: scale(1.05);
+}
+
+/* Botón seleccionar */
+.select-btn {
+    margin-top: 60px;
+    padding: 12px 40px;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-fondo-tarjeta);
+    color: var(--color-principal);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--color-sombra);
+    font-family: 'fuentePrincipal';
+    transition: 0.3s;
+    cursor: url("../Cursor/cursor.png"), auto;
+}
+
+.select-btn:hover {
+    background-color: var(--color-boton-hover);
+    transform: scale(1.05);
+}
+
+/* Animaciones compartidas */
+@keyframes animacionTitulo {
+    from {
+        text-shadow: 0 0 25px var(--color-brillo-inicial);
+    }
+    to {
+        text-shadow: 0 0 25px var(--color-brillo-final);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .selector {
+        transform: scale(0.6);
+        height: 50vh;
+    }
+}
+
+@media (max-width: 600px) {
+    #personaje-nombre {
+        font-size: 1.8rem;
+    }
+    .arrow {
+        font-size: 1.8rem;
+    }
+    .select-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+
+.descripcion-box {
+    background: var(--color-fondo-tarjeta);
+    border-radius: 15px;
+    padding: 20px;
+    width: 500px;
+    margin-right: 40px;
+    color: var(--color-principal);
+    font-family: 'fuentePrincipal';
+    box-shadow: 0 0 25px var(--color-sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: brillo 2s infinite alternate;
+}
+
+.descripcion-box h2 {
+    font-family: 'fuenteTitulo';
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--color-principal);
+}
+
+.descripcion-box p {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* Brillo animado */
+@keyframes brillo {
+    from { box-shadow: 0 0 15px var(--color-sombra); }
+    to { box-shadow: 0 0 25px var(--color-brillo-inicial); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .descripcion-box {
+        width: 250px;
+        margin-left: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .selector {
+        flex-direction: column;
+    }
+
+    .descripcion-box {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 80%;
+    }
+}

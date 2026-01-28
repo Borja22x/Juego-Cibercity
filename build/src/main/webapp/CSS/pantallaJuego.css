@@ -1,0 +1,468 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(../img/fondoCiudad.jpg);
+  background-size: contain;
+  background-attachment: fixed; 
+  height: 98vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: left;
+  color: white;
+  font-family: 'minecraft';
+  cursor: url("../Cursor/cursor.png"), auto;
+}
+
+h1{
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  font-size: 25px;
+  text-shadow: 0px 0px 20px rgb(201, 146, 201);
+}
+
+#ciudad {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* estructura edificio */
+div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #111;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+#edificioAzul{
+  width: 200px;
+  height: 700px;
+}
+
+#edificioVerde{
+  width: 300px;
+  height: 300px;
+}
+
+#edificioRojo{
+  width: 100px;
+  height: 800px;
+}
+
+#edificioRosa{
+  width: 230px;
+  height: 400px;
+}
+
+#edificioAmarillo{
+  width: 200px;
+  height: 700px;
+}
+
+/* base de los botones-ventanas */
+button.ventana {
+  width: 80px;
+  height: 80px;
+  background-color: #1a1a1a;
+  border: 2px solid #444;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: url("../Cursor/cursor.png"), auto;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px #000;
+}
+
+button.ventana:hover {
+  border-color: #777;
+}
+
+/* Colores por edificio */
+
+/* azul */
+.azul .ventana.encendida {
+  background-color: #4ecbff;
+  border-color: #8ee5ff;
+  box-shadow:
+    0 10px 25px 10px rgba(78, 203, 255, 0.5),
+    0 20px 50px 15px rgba(78, 203, 255, 0.3),
+    inset 0 0 15px #b3f1ff;
+  animation: luzFlujoAzul 2s infinite alternate;
+}
+
+/* verde */
+.verde .ventana.encendida {
+  background-color: #8cff71;
+  border-color: #adff91;
+  box-shadow:
+    0 10px 25px 10px rgba(140, 255, 113, 0.5),
+    0 20px 50px 15px rgba(140, 255, 113, 0.3),
+    inset 0 0 15px #d0ffbc;
+  animation: luzFlujoVerde 2s infinite alternate;
+}
+
+/* rojo */
+.rojo .ventana.encendida {
+  background-color: #ff6b6b;
+  border-color: #ff9b9b;
+  box-shadow:
+    0 10px 25px 10px rgba(255, 107, 107, 0.5),
+    0 20px 50px 15px rgba(255, 107, 107, 0.3),
+    inset 0 0 15px #ffd6d6;
+  animation: luzFlujoRoja 2s infinite alternate;
+}
+
+/* amarillo */
+.amarillo .ventana.encendida {
+  background-color: #f8e36f;
+  border-color: #ffea7a;
+  box-shadow:
+    0 10px 25px 10px rgba(255, 234, 122, 0.5),
+    0 20px 50px 15px rgba(255, 234, 122, 0.3),
+    inset 0 0 15px #fff6b3;
+  animation: luzFlujoAmarilla 2s infinite alternate;
+}
+
+/* rosa */
+.rosa .ventana.encendida {
+  background-color: #f86ff8;
+  border-color: #ff7af4;
+  box-shadow:
+    0 10px 25px 10px rgba(255, 122, 233, 0.5),
+    0 20px 50px 15px rgba(255, 122, 248, 0.3),
+    inset 0 0 15px #ffb3f5;
+  animation: luzFlujoRosa 2s infinite alternate;
+}
+
+/* animaciones individuales */
+@keyframes luzFlujoAmarilla {
+  0% { box-shadow: 0 8px 20px 8px rgba(255,234,122,0.4); }
+  100% { box-shadow: 0 15px 35px 15px rgba(255,234,122,0.6); }
+}
+@keyframes luzFlujoAzul {
+  0% { box-shadow: 0 8px 20px 8px rgba(78,203,255,0.4); }
+  100% { box-shadow: 0 15px 35px 15px rgba(78,203,255,0.6); }
+}
+@keyframes luzFlujoVerde {
+  0% { box-shadow: 0 8px 20px 8px rgba(140,255,113,0.4); }
+  100% { box-shadow: 0 15px 35px 15px rgba(140,255,113,0.6); }
+}
+@keyframes luzFlujoRoja {
+  0% { box-shadow: 0 8px 20px 8px rgba(255,107,107,0.4); }
+  100% { box-shadow: 0 15px 35px 15px rgba(255,107,107,0.6); }
+}
+@keyframes luzFlujoRosa {
+  0% { box-shadow: 0 8px 20px 8px rgba(255, 107, 223, 0.4); }
+  100% { box-shadow: 0 15px 35px 15px rgba(255, 107, 243, 0.6); }
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+#menu{
+  color: #E4E4FF;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(12, 10, 32, 0.85);
+  width: 680px;
+  height: 95vh;
+  margin-left: 20px;
+  border: 1px solid #6C63FF;
+  border-radius: 12px;
+  box-shadow: 0 0 22px #6C63FF60;
+  padding: 10px 18px;
+  overflow: hidden;
+  font-family: 'minecraft', sans-serif;
+}
+
+/* ==== PANEL SUPERIOR: INFO JUGADOR ==== */
+#info-jugador{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: rgba(20, 16, 60, 0.55);
+  border: 1px solid #7d74ff;
+  box-shadow: 0 0 18px #6C63FF60;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+/* ==== CARTAS ==== */
+#cartas-jugador{
+  display: flex;
+  align-items: flex-start;
+
+  background: rgba(8, 40, 20, 0.35);
+  border: 1px solid #33ffb0;
+  box-shadow: 0 0 14px #00ffaa40;
+
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+
+  height: 400px;
+}
+
+/* ==== TEXTOS ==== */
+h2{
+  font-size: 22px;
+  margin: 0;
+}
+/* 
+h2::after{
+  content: ' 💵';
+} */
+
+h3{
+  font-size: 16px;
+  margin: 0;
+}
+
+p{
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ==== BOTONES ==== */
+#botones-accion{
+  display: flex;
+  align-content: space-between;
+  background-color: unset;
+  border: none;
+}
+
+#botones-accion > button {
+  position: relative;
+  width: 48%;
+  height: 55px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: url("../Cursor/cursor.png"), auto;
+  background: #1a1a2e;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+/* ===== EFECTO NEÓN EN HOVER (CONSTRUCCIÓN) ===== */
+#construir:hover {
+  background: #6C63FF;
+  box-shadow: 0 0 15px #6C63FF, 
+              0 0 40px #6C63FF;
+  transform: scale(1.06);
+}
+
+/* ===== EFECTO NEÓN EN HOVER (ROBAR) ===== */
+#robar:hover {
+  background: #FF0055;
+  box-shadow: 0 0 15px #FF0055,
+              0 0 40px #FF0055;
+  transform: scale(1.06);
+}
+
+/* ===== RAYO SUPERIOR AL PASAR EL RATÓN ===== */
+#botones-accion > button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  transition: 0.5s;
+}
+
+/* movimiento del rayo */
+#botones-accion > button:hover::before {
+  left: 100%;
+}
+
+/* ===== EFECTO DE BRILLO INTERIOR SUAVE ===== */
+#botones-accion > button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(22px);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+#botones-accion > button:hover::after {
+  opacity: 0.6;
+}
+
+/* CARTAS */
+
+#cartas-jugador {
+    display: flex;
+    background: rgba(8, 40, 20);
+    padding: 50px;
+    height: 300px;
+    position: relative;
+}
+
+img {
+    width: 200px;
+    height: 340px;
+    margin-left: 50px;
+    position: absolute;
+    bottom: 30px;
+    filter: brightness(0.5);
+    border-radius: 10px;
+}
+
+#img1 {
+    left: 53%; 
+    transition: ease-in-out 0.3s all;
+}
+
+#img2 {
+    left: 40%;
+    transition: ease-in-out 0.3s all;
+}
+
+#img3 {
+    left: 27%;
+    transition: ease-in-out 0.3s all;
+}
+
+#img4 {
+    left: 14%;
+    transition: ease-in-out 0.3s all;
+}
+
+#img5 {
+    left: 0%;
+    transition: ease-in-out 0.3s all;
+}
+
+
+/* HOVER IMG 1 */
+#img1:hover {
+    cursor: pointer;
+    filter: brightness(1);
+    box-shadow: 0 0 20px white;
+}
+
+#img1:hover ~ #img2 {
+    left: 25%;
+}
+
+#img1:hover ~ #img3 {
+    left: 15%;
+}
+
+#img1:hover ~ #img4 {
+    left: 8%;
+}
+
+#img1:hover ~ #img5 {
+    left: 0%;
+}
+
+/* HOVER IMG 2 */
+#img2:hover {
+    cursor: pointer;
+    left: 43%;
+    filter: brightness(1);
+    box-shadow: 0 0 20px white;
+}
+
+#img2:hover ~ #img3 {
+    left: 15%;
+}
+
+#img2:hover ~ #img4 {
+    left: 8%;
+}
+
+#img2:hover ~ #img5 {
+    left: 0%;
+}
+
+/* HOVER IMG 3 */
+#img3:hover {
+    cursor: pointer;
+    left: 37%;
+    filter: brightness(1);
+    box-shadow: 0 0 20px white;
+}
+
+body:has(#img3:hover) #img2 {
+    left: 45%;
+}
+
+#img3:hover ~ #img4 {
+    left: 8%;
+}
+
+#img3:hover ~ #img5 {
+    left: 0%;
+}
+
+/* HOVER IMG 4 */
+#img4:hover {
+    cursor: pointer;
+    left: 29%;
+    filter: brightness(1);
+    box-shadow: 0 0 20px white;
+}
+
+body:has(#img4:hover) #img3 {
+    left: 37%;
+}
+
+body:has(#img4:hover) #img2 {
+    left: 45%;
+}
+
+/* HOVER IMG 5 */
+#img5:hover {
+    cursor: pointer;
+    filter: brightness(1);
+    box-shadow: 0 0 20px white;
+}
+
+/* ==== FUENTE ==== */
+@font-face {
+  font-family: 'minecraft';
+  src: url('../fuentes/MinecraftStandard.otf') format('truetype');
+}
+
+/* ==== FUENTE ==== */
+@font-face {
+  font-family: 'minecraft';
+  src: url('../fuentes/MinecraftStandard.otf') format('truetype');
+}
+
+
+
+
+.carta:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+#cartas-jugador img.carta {
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid #00ffea;
+    box-shadow: 0 0 10px #00ffea;
+}
